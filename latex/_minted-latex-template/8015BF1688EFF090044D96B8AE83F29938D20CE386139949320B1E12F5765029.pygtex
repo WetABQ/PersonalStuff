@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k+kd}{suspend}\PYG{+w}{ }\PYG{k+kd}{fun}\PYG{+w}{ }\PYG{n+nf}{main}\PYG{p}{(}\PYG{n}{args}\PYG{p}{:}\PYG{+w}{ }\PYG{n}{Array}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{String}\PYG{o}{\PYGZgt{}}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{when}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kd}{val}\PYG{+w}{ }\PYG{n+nv}{result}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{SorapointaMain}\PYG{p}{().}\PYG{n+na}{main}\PYG{p}{(}\PYG{n}{args}\PYG{p}{))}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{k}{is}\PYG{+w}{ }\PYG{n}{CommandResult}\PYG{p}{.}\PYG{n+na}{Success}\PYG{+w}{ }\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{          }\PYG{n}{exitProcess}\PYG{p}{(}\PYG{l+m}{0}\PYG{p}{)}
+\PYG{+w}{      }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{      }\PYG{k}{is}\PYG{+w}{ }\PYG{n}{CommandResult}\PYG{p}{.}\PYG{n+na}{Error}\PYG{+w}{ }\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{          }\PYG{n}{println}\PYG{p}{(}\PYG{n}{result}\PYG{p}{.}\PYG{n+na}{userMessage}\PYG{p}{)}
+\PYG{+w}{          }\PYG{n}{exitProcess}\PYG{p}{(}\PYG{l+m}{1}\PYG{p}{)}
+\PYG{+w}{      }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
