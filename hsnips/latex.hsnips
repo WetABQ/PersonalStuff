@@ -68,12 +68,12 @@ function block_math(context){
 endglobal
 
 
+
 # == Fraction Match ==
 
 context math(context)
 snippet // "Fraction" iA
 \\frac{${1}}{$2}$0
-endcontext math(context)
 endsnippet 
 
 context math(context)
@@ -173,7 +173,7 @@ endsnippet
 priority 100
 context math(context)
 snippet `([a-z])_(\d{2})` "auto subscript" wA
-`` rv = m[1] + "_{" + m[2] + "}$0" ``
+`` rv = m[1] + "_{" + m[2] + "}" ``
 endsnippet
 
 priority 100
@@ -681,8 +681,7 @@ snippet `\b([a-z])=n` "i=1,2,\cdots,n" wA
 ``rv = m[1]``=1,2,\cdots,n
 endsnippet
 
-# ======== Common Operator context math(context)
-snippet ========
+# ======== Common Operator ========
 
 context math(context)
 snippet `(?<!\\)sum` "sum" wA
@@ -1019,4 +1018,22 @@ snippet tikzfig "TikZ figure" b
 	\caption{${2:caption}}
 	\label{fig:${3:label}}
 \end{figure}
+endsnippet
+
+snippet neweg "New Example" b
+\begin{Example}{$1}{$2}
+	$0
+\end{Example}
+endsnippet
+
+snippet newdef "New Definition" b
+\begin{Definition}{$1}{$2}
+	$0
+\end{Definition}
+endsnippet
+
+snippet newthm "New Theorem" b
+\begin{Theorem}{$1}{$2}
+	$0
+\end{Theorem}
 endsnippet

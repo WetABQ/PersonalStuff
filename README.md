@@ -34,3 +34,5 @@ Install [HyperSnips](https://marketplace.visualstudio.com/items?itemName=draivin
 Then copy the snippets to this folder and restart the VSCode Windows.
 
 The snippets is adapted from [https://zhuanlan.zhihu.com/p/199268436](https://zhuanlan.zhihu.com/p/199268436) and [https://github.com/OrangeX4/OrangeX4-HyperSnips](https://github.com/OrangeX4/OrangeX4-HyperSnips).
+
+**NOTE**: The snippets are migrated from old version recently, so there maybe some problems. If you find any, please open an issue.
