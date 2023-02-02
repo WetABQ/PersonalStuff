@@ -1,0 +1,332 @@
+% !TEX TS-program = lualatex
+% !TEX encoding = UTF-8 Unicode
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+% 页眉
+\usepackage{fancyhdr}
+% 为中文 / 日语提供注音
+% \usepackage{luatexja-ruby}
+% 代码高亮
+\usepackage{minted}
+% 页面布局
+\usepackage[
+  papersize={8.5in,11in},
+  a4paper,
+  bindingoffset=0.2in,
+  left=1.2in,
+  right=1.2in,
+  top=1in,
+  bottom=1in,
+  footskip=.25in,
+  headheight=14pt,
+]{geometry}
+% 预定义颜色
+\usepackage[dvipsnames]{xcolor}
+% 超链接
+\usepackage[
+  colorlinks,
+  linkcolor = BrickRed,
+  citecolor = Green,
+  filecolor = Mulberry,
+  urlcolor  = NavyBlue,
+  menucolor = BrickRed,
+  runcolor  = Mulberry,
+]{hyperref}
+% 参考文献
+\usepackage[
+  backend  = biber,
+  style    = caspervector,
+  seconds,
+  utf8,
+  backref,
+]{biblatex}
+% 页脚
+\usepackage[
+  perpage,
+  hang,
+  flushmargin,
+]{footmisc}
+% 多行页脚
+\usepackage{footnotebackref}
+% % 字体
+% \usepackage{pifont}
+% 图像
+\usepackage{graphicx}
+% % 扫描本地字体
+% \usepackage{fontspec}
+% 控制章节标题格式
+\usepackage{sectsty}
+% 详见 https://tex.stackexchange.com/questions/664/why-should-i-use-usepackaget1fontenc
+\usepackage[T1]{fontenc}
+% Letter Spacing
+% 详见 https://tex.stackexchange.com/questions/522106/is-there-a-way-to-get-wider-spacing-between-the-letters
+\usepackage{soul} 
+% 控制章节标题格式
+\usepackage[explicit]{titlesec}
+% 控制 TOC 目录格式
+\usepackage{titletoc}
+% 控制列表格式
+\usepackage[shortlabels]{enumitem}
+% 彩色框 - 本模板用于定义定理，定义，例子的框图样式
+% 详见 https://tex.stackexchange.com/questions/562753/how-to-make-a-colour-box-in-these-3-different-ways
+\usepackage{tcolorbox}
+% Pst-node 节点绘图
+\usepackage{pst-node}
+% Tikz 绘图
+\usepackage{tikz}
+% Tikz 交换图绘图
+\usepackage{tikz-cd}
+% pgf 函数绘图
+\usepackage{pgfplots}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+
+% RSFS 字体
+% 详解 https://tug.org/FontCatalogue/ralphsmithsformalscript/
+\usepackage{mathrsfs}
+% 数学
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{amsmath}
+% 划线抵消删除符号
+\usepackage{cancel}
+
+% 浮动体，提供 [H] `PUT IT HERE` 选项
+\usepackage{float}
+% 提供更细粒度的浮动体 Caption 控制
+\usepackage{caption}
+% 提供并排浮动体的子 Caption 控制（左右排列的图片使用不同的 Caption）
+\usepackage{subcaption}
+% 提供多列的文章排版
+\usepackage{multicol}
+% 提供更细粒度的表格宽度控制
+\usepackage{tabularx}
+% 希腊字母
+\usepackage{upgreek}
+% 修改字体 / 数学字符的大小
+\usepackage{relsize}
+
+% 注释块
+\usepackage{verbatim}
+
+% 图像资源路径
+\graphicspath{{images/}}
+
+% 重定义粗体，以使其字体统一
+\renewcommand{\emph}[1]{\textbf{#1}}
+
+% 参考文献
+\addbibresource{ref.bib}
+
+% 代码块
+\renewcommand{\theFancyVerbLine}{%
+  \ttfamily {%
+    \oldstylenums{\arabic{FancyVerbLine}}
+  }
+}
+\setminted{
+  mathescape,
+  linenos,
+  breaklines,
+  breakanywhere,
+  autogobble,
+  numbersep=5pt,
+  baselinestretch=1.2,
+  frame    = lines,
+  framesep = 2mm,
+}
+
+% 字体
+% \setmainfont{New York Small Regular}[
+%   BoldFont = New York Small Bold,
+%   BoldItalicFont = New York Small Bold Italic,
+%   ItalicFont = New York Small Regular Italic
+% ]
+% \setmainfont{CMU Serif}[
+%   ItalicFont = CMU Serif Italic
+% ]
+% \setsansfont{SF Pro Text}[
+%   ItalicFont = New York Small Regular Italic
+% ]
+
+% \newcommand{\emoji}[1]{
+%   {\setmainfont{Apple Color Emoji}[Renderer=Harfbuzz]{#1}}
+% }
+
+% \setmonofont[
+%   ItalicFont     = JetBrains Mono Italic,
+%   BoldFont       = JetBrains Mono Bold,
+%   BoldItalicFont = JetBrains Mono Bold Italic,
+%   Contextuals    = Alternate,
+% ]{JetBrains Mono}
+
+% \newfontfamily\lmmono{Latin Modern Mono}
+% \newfontfamily\bsans{SF Pro Text Bold}
+% \newfontfamily\displaysans{SF Pro Display}
+
+% 设置所有章节标题字体为非衬线字体
+\allsectionsfont{\sf}
+
+\sodef\chapterso{}{.5em}{2em}{2em}
+
+% 设置章节标题样式
+\titleformat{\chapter}[display]
+{\bfseries} %format
+{\textsf{\textbf{\large\chapterso{\MakeUppercase\chaptertitlename}\hspace{1.1em}\thechapter}}} %label
+{1.5em} %sep 
+{\sf{\textbf{\huge#1}}\bfseries} %before-code
+
+\titlespacing*{\chapter}{0pt}{-30pt}{40pt}
+
+% 设置 TOC 样式
+\titlecontents{chapter}
+[1.5em]
+{\sf}
+{\textbf{\sf{Chapter \thecontentslabel. }}}
+{\huge}
+{\mdseries\titlerule*[0.75em]{.}\bfseries \thecontentspage} 
+[\addvspace{.5pc}]
+
+\titlecontents{section}
+[2.5em]
+{\sf}
+{\thecontentslabel. }
+{\huge}
+{\mdseries\titlerule*[0.75em]{.}\bfseries \thecontentspage} 
+[\addvspace{.5pc}]
+
+\titlecontents{subsection}
+[3.5em]
+{\sf}
+{\thecontentslabel. }
+{\huge}
+{\mdseries\titlerule*[0.75em]{.}\bfseries \thecontentspage} 
+[\addvspace{.5pc}]
+
+\titlecontents{subsubsection}
+[3.5em]
+{\sf}
+{\thecontentslabel. }
+{\huge}
+{\mdseries\titlerule*[0.75em]{.}\bfseries \thecontentspage} 
+[\addvspace{.5pc}]
+
+% 链接样式
+\urlstyle{same}
+\let\oldurl\url
+\renewcommand{\url}[1]{%
+{\lmmono\oldurl{#1}}
+}
+
+% 彩色定理 / 例子 / 定义环境
+\definecolor{theorembg}{HTML}{F2F2F9}
+\definecolor{theoremfr}{HTML}{00007B}
+\definecolor{examplebg}{HTML}{F8E5D5}
+\definecolor{examplefr}{HTML}{FA893F}
+\definecolor{exampleti}{HTML}{2A7F7F}
+\definecolor{definitbg}{HTML}{DEFFD4}
+\definecolor{definitfr}{HTML}{60AD49}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem*{remark}{Remark}
+\newtheorem{exercise}{Exercise}
+\newtheorem{problem}{Problem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{question}{Question}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{assumption}{Assumption}
+\newtheorem{notation}{Notation}
+\newtheorem{claim}{Claim}
+\newtheorem{observation}{Observation}
+\newtheorem{fact}{Fact}
+\newtheorem{solution}{Solution}
+\newtheorem{convention}{Convention}
+
+
+\tcbuselibrary{theorems,skins,hooks}
+
+\newtcbtheorem[number within=section]{Theorem}{Theorem}
+{%
+   enhanced
+  ,colback = theorembg
+  ,frame hidden
+  ,boxrule = 0sp
+  ,borderline west = {2pt}{0pt}{theoremfr}
+  ,sharp corners
+  ,detach title
+  ,before upper = \tcbtitle\par\smallskip
+  ,coltitle = theoremfr
+  ,fonttitle = \bfseries\sffamily
+  ,description font = \mdseries
+  ,terminator sign none
+  ,separator sign none
+}
+{th}
+
+\newtcbtheorem[number within=section]{Example}{Example}
+{%
+   enhanced
+  ,colback = examplebg
+  ,frame hidden
+  ,boxrule = 0sp
+  ,borderline west = {2pt}{0pt}{examplefr}
+  ,sharp corners
+  ,detach title
+  ,before upper = \tcbtitle\par\smallskip
+  ,coltitle = examplefr
+  ,fonttitle = \bfseries\sffamily
+  ,description font = \mdseries
+  ,terminator sign none
+  ,separator sign none
+}
+{ex}
+
+
+\newtcbtheorem[number within=section]{Definition}{Definition}
+{%
+   enhanced
+  ,colback = definitbg
+  ,frame hidden
+  ,boxrule = 0sp
+  ,borderline west = {2pt}{0pt}{definitfr}
+  ,sharp corners
+  ,detach title
+  ,before upper = \tcbtitle\par\smallskip
+  ,coltitle = definitfr
+  ,fonttitle = \bfseries\sffamily
+  ,description font = \mdseries
+  ,terminator sign none
+  ,separator sign none
+}
+{def}
+
+%% Backref
+\makeatletter
+\LetLtxMacro{\BHFN@Old@footnotemark}{\@footnotemark}
+
+\renewcommand*{\@footnotemark}{%
+    \refstepcounter{BackrefHyperFootnoteCounter}%
+    \xdef\BackrefFootnoteTag{bhfn:\theBackrefHyperFootnoteCounter}%
+    \label{\BackrefFootnoteTag}%
+    \BHFN@Old@footnotemark
+}
+\makeatother
+
+
+% 页眉
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+% \renewcommand\headrule{\makebox[\textwidth][r]{\rule{0.4\headwidth}{\headrulewidth}}}
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+\rhead{\sf{\rightmark} \hspace{.8em} \textbf{\textsf{\thepage}}}
+\pagestyle{fancy}
+
+
+% 页脚
+\fancyfoot[C]{\thepage}
