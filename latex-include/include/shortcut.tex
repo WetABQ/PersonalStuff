@@ -6,7 +6,7 @@
 \newcommand{\for}{\textnormal{ for }}
 \newcommand{\where}{\textnormal{ where }}
 \newcommand{\by}{\textnormal{ by }}
-\newcommand{\and}{\textnormal{ and }}
+% \newcommand{\and}{\textnormal{ and }}
 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Z}{\mathbb{Z}}
@@ -52,5 +52,8 @@
 
 \renewcommand\labelenumi{(\theenumi)}
 \renewcommand\qedsymbol{$\square$}
+
+\let\oldemptyset\emptyset
+\let\emptyset\varnothing
 
 \newcommand{\citem}[1]{\setcounter{enumi}{#1}\item}
