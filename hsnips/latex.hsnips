@@ -446,6 +446,11 @@ snippet -- "setminus" iA
 endsnippet
 
 context math(context)
+snippet sjeq "triangle left eq" iA
+\trianglelefteq
+endsnippet
+
+context math(context)
 snippet >= "greater than" iA
 \geqslant $0
 endsnippet
